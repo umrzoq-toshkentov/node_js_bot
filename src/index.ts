@@ -3,6 +3,7 @@ import { startCommand, helpCommand, helloCommand, menuCommand, optionsCommand } 
 import { loggerMiddleware } from "./middlewares";
 import { yesAction, noAction, onPhoto } from "./handlers";
 import { BotContext } from "./types/context";
+import { ADD_NOTE_SCENE, addNoteScene } from "./scenes/add-note";
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 
@@ -11,7 +12,7 @@ if (!BOT_TOKEN) {
 }
 
 const bot = new Telegraf<BotContext>(BOT_TOKEN);
-const stage = new Scenes.Stage<BotContext>();
+const stage = new Scenes.Stage<BotContext>([addNoteScene]);
 
 // Middlewares
 bot.use(session());
@@ -24,6 +25,7 @@ bot.help(helpCommand);
 bot.command("hello", helloCommand);
 bot.command("menu", menuCommand);
 bot.command("options", optionsCommand);
+bot.command("addnote", (ctx) => ctx.scene.enter(ADD_NOTE_SCENE));
 
 // Actions
 bot.action("yes", yesAction);
