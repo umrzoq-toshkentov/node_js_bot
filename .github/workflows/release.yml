@@ -46,7 +46,7 @@ jobs:
 
       - name: Build
         if: steps.tag_check.outputs.exists == 'false'
-        run: bun build src/index.ts --compile --outfile dist/bot
+        run: bun run build
 
       - name: Create tag
         if: steps.tag_check.outputs.exists == 'false'
