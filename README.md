@@ -45,23 +45,23 @@ bun run start
 
 ## Available Commands
 
-| Command   | Description        |
-| --------- | ------------------ |
-| `/start`  | Start the bot      |
-| `/help`   | Show help message  |
-| `/hello`  | Get a greeting     |
+| Command  | Description       |
+| -------- | ----------------- |
+| `/start` | Start the bot     |
+| `/help`  | Show help message |
+| `/hello` | Get a greeting    |
 
 ## Scripts
 
-| Script          | Description                          |
-| --------------- | ------------------------------------ |
-| `bun run dev`   | Run with hot reload                  |
-| `bun run start` | Run in production mode               |
-| `bun run test`  | Run tests                            |
-| `bun run lint`  | Lint with oxlint                     |
-| `bun run lint:fix` | Lint and fix issues               |
-| `bun run format` | Format code with oxfmt              |
-| `bun run format:check` | Check code formatting         |
+| Script                 | Description            |
+| ---------------------- | ---------------------- |
+| `bun run dev`          | Run with hot reload    |
+| `bun run start`        | Run in production mode |
+| `bun run test`         | Run tests              |
+| `bun run lint`         | Lint with oxlint       |
+| `bun run lint:fix`     | Lint and fix issues    |
+| `bun run format`       | Format code with oxfmt |
+| `bun run format:check` | Check code formatting  |
 
 ## Tech Stack
 

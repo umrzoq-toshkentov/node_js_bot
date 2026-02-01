@@ -1,4 +1,8 @@
-import { Telegraf } from "telegraf";
+import { Scenes, Telegraf, session } from "telegraf";
+import { startCommand, helpCommand, helloCommand, menuCommand, optionsCommand } from "./commands";
+import { loggerMiddleware } from "./middlewares";
+import { yesAction, noAction, onPhoto } from "./handlers";
+import { BotContext } from "./types/context";
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 
@@ -6,26 +10,27 @@ if (!BOT_TOKEN) {
   throw new Error("BOT_TOKEN environment variable is required");
 }
 
-const bot = new Telegraf(BOT_TOKEN);
-bot.start((ctx) => {
-  ctx.reply("Hello!");
-});
+const bot = new Telegraf<BotContext>(BOT_TOKEN);
+const stage = new Scenes.Stage<BotContext>();
 
-bot.help((ctx) => {
-  ctx.reply("Help message");
-});
+// Middlewares
+bot.use(session());
+bot.use(loggerMiddleware);
+bot.use(stage.middleware());
 
-bot.command("hello", (ctx) => {
-  ctx.reply("Hello from bot!");
-});
+// Commands
+bot.start(startCommand);
+bot.help(helpCommand);
+bot.command("hello", helloCommand);
+bot.command("menu", menuCommand);
+bot.command("options", optionsCommand);
 
-bot.on("text", (ctx) => {
-  console.log(ctx);
-});
+// Actions
+bot.action("yes", yesAction);
+bot.action("no", noAction);
 
-bot.on("photo", (ctx) => {
-  ctx.reply("Rasm qabul qilindi!");
-});
+// Event handlers
+bot.on("photo", onPhoto);
 
 bot.launch();
 
