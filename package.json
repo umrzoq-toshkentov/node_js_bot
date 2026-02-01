@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "bun run --watch src/index.ts",
     "start": "bun run src/index.ts",
+    "build": "bun build src/index.ts --compile --outfile dist/bot",
     "test": "bun test",
     "lint": "oxlint src",
     "lint:fix": "oxlint src --fix",
