@@ -27,6 +27,8 @@ jobs:
 
       - name: Run tests
         run: bun run test
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

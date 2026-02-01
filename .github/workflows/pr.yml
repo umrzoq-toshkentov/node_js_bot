@@ -26,3 +26,5 @@ jobs:
 
       - name: Run tests
         run: bun run test
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
