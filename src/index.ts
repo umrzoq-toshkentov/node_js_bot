@@ -19,6 +19,14 @@ bot.command("hello", (ctx) => {
   ctx.reply("Hello from bot!");
 });
 
+bot.on("text", (ctx) => {
+  console.log(ctx);
+});
+
+bot.on("photo", (ctx) => {
+  ctx.reply("Rasm qabul qilindi!");
+});
+
 bot.launch();
 
 console.log("Bot is running...");
