@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nicholaslee119/oxfmt-schemas/main/schema.json",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": false,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "ignorePatterns": ["node_modules", "dist", "bun.lock"]
+}
